@@ -65,7 +65,7 @@ eventRoute.get('/:id', (req, res) => {
                         if (err) return res.json(err);
 
                         // Получаем все билеты для данного eventId из таблицы tickets
-                        const sqlTickets = "SELECT id, price, total, row, seats, sector, date, time, ticketCategoriesId FROM tickets WHERE eventId=?";
+                        const sqlTickets = "SELECT id, price, total, \`row\`, seats, sector, date, time, ticketCategoriesId FROM tickets WHERE eventId=?";
                         connect.query(sqlTickets, [id], (err, tickets) => {
                             if (err) return res.json(err);
 

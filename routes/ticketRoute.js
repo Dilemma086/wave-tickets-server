@@ -24,7 +24,7 @@ LEFT JOIN
 LEFT JOIN 
   images i ON ei_min.minImageId = i.id
 GROUP BY 
-  t.id
+  t.id, el.locatId
 ORDER BY 
   t.id DESC
   `;
@@ -75,6 +75,8 @@ ticketRoute.get('/:id', (req, res) => {
         ticket_categories tc ON t.ticketCategoriesId = tc.id  -- Соединяем с таблицей ticket_categories
     WHERE 
         t.id = ?
+    GROUP BY 
+        t.id, el.locatId
     ORDER BY 
         t.id DESC
   `;
