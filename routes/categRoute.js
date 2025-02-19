@@ -13,8 +13,8 @@ categRoute.get('/:category', (req, res)=> {
         e.*,
         e.name AS eventName,
         i.image AS firstImageUrl,
-        t.date AS ticketDate,
-        t.time AS ticketTime
+        MIN(t.date) AS ticketDate,
+        MIN(t.time) AS ticketTime
       FROM 
         category c
       JOIN
