@@ -12,6 +12,8 @@ categRoute.get('/:category', (req, res)=> {
     ec.eventId,
     MIN(t.date) AS ticketDate,
     MIN(t.time) AS ticketTime,
+    MIN(t.price) AS price,
+    MIN(t.total) AS total,
     MIN(e.name) AS eventName,
     MIN(i.image) AS firstImageUrl
 FROM 
